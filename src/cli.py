@@ -60,6 +60,24 @@ def main() -> None:
     print()
     print("Final belief base after revision:")
     print(_format_base(revised))
+    
+    print()
+    checkEntailment = input("Check for entailment? (y/n): ")
+    print()
+    
+    if (checkEntailment=="y"):
+        KB = revised
+        phi= input("Please input phi:")
+        print()
+        Entailment = BeliefBase.entails(KB,parse_formula(phi))
+        
+        
+        
+        print("Knowladge Base KB:", _format_base(KB))
+        print()
+        print(f"Check for entailment with phi:", phi)
+        print()
+        print("KB entails phi:", Entailment)
 
 
 def _format_base(base: BeliefBase) -> str:
